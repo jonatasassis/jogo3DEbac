@@ -1,56 +1,50 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
 
-public class StateMachine : MonoBehaviour
+namespace ScriptsJogo3D.StateMachine
 {
-    public enum States
+    public class StateMachine<T> where T : System.Enum
     {
-        NONE
-    }
 
-    //chave
+        public Dictionary<T, StateBase> dictionaryStates;
+        private StateBase currentState;
+        public float timeToStartGame = 1f;
 
-    public Dictionary<States, StateBase> dictionaryStates;
-    private StateBase currentState;
-    public float timeToStartGame =1f;
-
-    private void Awake()
-    {
-        dictionaryStates = new Dictionary<States, StateBase>();
-        dictionaryStates.Add(States.NONE,new StateBase());
-
-        SwitchState(States.NONE);
-
-        Invoke(nameof(StartGame),timeToStartGame);
-    }
-
-    private void StartGame()
-    {
-        SwitchState(States.NONE);
-    }
-
-    private void SwitchState(States state)
-    {
-        if (currentState != null)
+        public StateBase estadoAtual
         {
-            currentState.OnStateExit();
+            get { return currentState; }
         }
 
-        currentState= dictionaryStates[state];
-        currentState.OnStateEnter();
-    }
-
-    private void Update()
-    {
-        if (currentState != null)
+        public void Init()
         {
-            currentState.OnStateStay();
+            dictionaryStates = new Dictionary<T, StateBase>();
+        }
+        public void RegisterStates(T typeEnum, StateBase state)
+        {
+            dictionaryStates.Add(typeEnum, state);
         }
 
-        if (Input.GetKeyDown(KeyCode.D))
+        public void SwitchState(T state)
         {
-           // SwitchState(States.NONE);
+            if (currentState != null)
+            {
+                currentState.OnStateExit();
+            }
+
+            currentState = dictionaryStates[state];
+            currentState.OnStateEnter();
+        }
+
+        public void Update()
+        {
+            if (currentState != null)
+            {
+                currentState.OnStateStay();
+            }
+
+
         }
     }
 }

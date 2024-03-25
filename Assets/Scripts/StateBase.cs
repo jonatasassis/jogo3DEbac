@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ScriptsJogo3D.StateMachine;
 
 public class StateBase : MonoBehaviour
 {
