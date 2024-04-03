@@ -13,23 +13,7 @@ public class GunBase : MonoBehaviour
     public GameObject projectil;
 
     // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(teclaTiro))
-        {
-            coroutineAtual = StartCoroutine(DelayAtirar());
-        }
-
-        else if (Input.GetKeyUp(teclaTiro))
-        {
-            if (coroutineAtual != null)
-            {
-                StopCoroutine(coroutineAtual);
-                
-            }
-        }
-        
-    }
+   
 
     public void Atirar()
     {
@@ -45,5 +29,20 @@ public class GunBase : MonoBehaviour
             Atirar();
             yield return new WaitForSeconds(delayTiro);
         
+    }
+
+    public void StartShoot()
+    {
+        StopShoot();
+        coroutineAtual = StartCoroutine(DelayAtirar());
+    }
+
+    public void StopShoot()
+    {
+        if (coroutineAtual != null)
+        {
+            StopCoroutine(coroutineAtual);
+
+        }
     }
 }
