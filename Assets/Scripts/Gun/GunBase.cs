@@ -23,7 +23,7 @@ public class GunBase : MonoBehaviour
 
     }
 
-    IEnumerator DelayAtirar()
+   protected virtual IEnumerator DelayAtirar()
     {
        
             Atirar();
