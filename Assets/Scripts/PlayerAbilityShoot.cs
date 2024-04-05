@@ -5,8 +5,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerAbilityShoot : PlayerAbilityBase
 {
+    public List<UIGunUpdate> uiGunUpdateList;
     
-    public GunBase Arma;
+    public GunBase arma1,arma2;
     private GunBase currentGun;
     public Transform gunPosition;
     protected override void Init()
@@ -19,8 +20,15 @@ public class PlayerAbilityShoot : PlayerAbilityBase
 
     private void CreateGun()
     {
-        currentGun = Instantiate(Arma, gunPosition);
+       
+        currentGun = Instantiate(arma1, gunPosition);
         currentGun.transform.localPosition = currentGun.transform.localEulerAngles = Vector3.zero;
+       
+    }
+
+    private void Update()
+    {
+        SelectGun();
     }
 
     private void StartShoot()
@@ -35,4 +43,26 @@ public class PlayerAbilityShoot : PlayerAbilityBase
         Debug.Log("Parar de Atirar");
     }
 
+    private void SelectGun()
+    {
+        if (Input.GetKeyDown(KeyCode.Keypad1))
+        {
+
+            
+            currentGun = Instantiate(arma1, gunPosition);
+            currentGun.transform.localPosition = currentGun.transform.localEulerAngles = Vector3.zero;
+            
+
+
+
+        }
+        else if (Input.GetKeyDown(KeyCode.Keypad2))
+        {
+            
+           
+            currentGun = Instantiate(arma2, gunPosition);
+            currentGun.transform.localPosition = currentGun.transform.localEulerAngles = Vector3.zero;
+           
+        }
+    }
 }
