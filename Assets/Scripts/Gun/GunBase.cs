@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -10,16 +11,17 @@ public class GunBase : MonoBehaviour
     public float delayTiro;
     public Coroutine coroutineAtual;
     public KeyCode teclaTiro;
-    public GameObject projectil;
+    public float speed =50f;
 
     // Update is called once per frame
    
 
-    public void Atirar()
+    public virtual void Atirar()
     {
-        Instantiate(prefabProjectil);
+        var projectil = Instantiate(prefabProjectil);
         projectil.transform.position= posInicialTiro.position;
         projectil.transform.rotation= posInicialTiro.rotation;
+        projectil.velProjectil = speed;
 
     }
 
