@@ -10,6 +10,7 @@ public class PlayerAbilityShoot : PlayerAbilityBase
     public GunBase arma1,arma2;
     private GunBase currentGun;
     public Transform gunPosition;
+    
     protected override void Init()
     {
         base.Init();
@@ -20,7 +21,7 @@ public class PlayerAbilityShoot : PlayerAbilityBase
 
     private void CreateGun()
     {
-       
+        
         currentGun = Instantiate(arma1, gunPosition);
         currentGun.transform.localPosition = currentGun.transform.localEulerAngles = Vector3.zero;
        
@@ -47,22 +48,26 @@ public class PlayerAbilityShoot : PlayerAbilityBase
     {
         if (Input.GetKeyDown(KeyCode.Keypad1))
         {
-
-            
+             DestroyGun();
             currentGun = Instantiate(arma1, gunPosition);
             currentGun.transform.localPosition = currentGun.transform.localEulerAngles = Vector3.zero;
-            
-
 
 
         }
         else if (Input.GetKeyDown(KeyCode.Keypad2))
         {
-            
-           
+
+
+            DestroyGun();
             currentGun = Instantiate(arma2, gunPosition);
             currentGun.transform.localPosition = currentGun.transform.localEulerAngles = Vector3.zero;
-           
+
+
         }
+    }
+
+    private void DestroyGun()
+    {
+        Destroy(currentGun.gameObject);
     }
 }
