@@ -1,6 +1,9 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Animation;
+
 
 namespace Enemy
 {
@@ -8,6 +11,12 @@ namespace Enemy
     {
         public float startLife = 10f;
         private float currentLife;
+        public AnimationBase enemyAnimationBase;
+
+        [Header("Start Animation")]
+        public float startAnimationDuration = 0.2f;
+        public Ease startAnimationEase= Ease.OutBack;
+
 
         private void Awake()
         {
@@ -17,6 +26,7 @@ namespace Enemy
         private void Init()
         {
             ResetLife();
+            BornAnimation();
         }
 
         protected void ResetLife()
@@ -32,7 +42,8 @@ namespace Enemy
 
         protected virtual void OnKill()
         {
-            Destroy(gameObject);
+            Destroy(gameObject,3f);
+            PlayAnimationByTrigger(AnimationType.DEATH);
 
         }
 
@@ -44,6 +55,18 @@ namespace Enemy
             {
                 Kill();
             }
+        }
+
+        private void BornAnimation()
+        {
+            transform.DOScale(0, startAnimationDuration).SetEase(startAnimationEase).From();
+        }
+
+        public void PlayAnimationByTrigger(AnimationType animType)
+        {
+           enemyAnimationBase.PlayAnimationByTrigger(animType);
+           
+
         }
     }
 }
