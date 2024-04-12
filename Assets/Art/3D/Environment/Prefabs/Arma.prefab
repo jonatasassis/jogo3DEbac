@@ -111,4 +111,4 @@ MonoBehaviour:
   posInicialTiro: {fileID: 1780521305101347630}
   delayTiro: 0.1
   teclaTiro: 120
-  speed: 50
+  speed: 0

@@ -46,9 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6470f66c2781d90469153e7b81665f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayDestruirPorjectil: 2
-  qtdDano: 1
-  velProjectil: 30
+  delayDestruirPorjectil: 30
+  qtdDano: 5
+  velProjectil: 0
 --- !u!54 &1029042774981360941
 Rigidbody:
   m_ObjectHideFlags: 0

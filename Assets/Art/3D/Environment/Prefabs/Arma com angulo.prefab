@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 2780246819607605297}
   - component: {fileID: 1156916067773991171}
   - component: {fileID: 4313040498160082761}
-  - component: {fileID: 3121946059557036382}
+  - component: {fileID: -4532378265484580053}
   m_Layer: 0
   m_Name: Arma com angulo
   m_TagString: Untagged
@@ -95,7 +95,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3121946059557036382
+--- !u!114 &-4532378265484580053
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,11 +109,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabProjectil: {fileID: 8315344552608758209, guid: 984748c59200f7f48ad174be75426754, type: 3}
   posInicialTiro: {fileID: 5572753211584918624}
-  delayTiro: 0.1
+  delayTiro: 6
   teclaTiro: 120
-  speed: 50
+  speed: 10
   uiGunUpdateList: []
   maxShoots: 5
-  timeToRecharge: 5
+  timeToRecharge: 1
   amountPerShoot: 4
   angle: 15

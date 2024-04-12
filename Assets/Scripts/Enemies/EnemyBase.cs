@@ -13,6 +13,8 @@ namespace Enemy
         public float startLife = 10f;
         private float currentLife;
         public AnimationBase enemyAnimationBase;
+        public FlashColor flashColor;
+        public ParticleSystem enemyParticleSystem;
 
         [Header("Start Animation")]
         public float startAnimationDuration = 0.2f;
@@ -54,6 +56,14 @@ namespace Enemy
 
         public void OnDamage(float f)
         {
+            if (flashColor!=null)
+            {
+                flashColor.Flash();
+            }
+            if (enemyParticleSystem != null)
+            {
+                enemyParticleSystem.Emit(15);
+            }
             currentLife -= f;
 
             if (currentLife <= 0)

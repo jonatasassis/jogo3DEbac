@@ -80,7 +80,7 @@ MonoBehaviour:
   posInicialTiro: {fileID: 8696814456017640167}
   delayTiro: 0.2
   teclaTiro: 120
-  speed: 50
+  speed: 20
   uiGunUpdateList: []
   maxShoots: 5
   timeToRecharge: 1
