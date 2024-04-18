@@ -81,7 +81,8 @@ MonoBehaviour:
   delayTiro: 0.2
   teclaTiro: 120
   speed: 20
-  uiGunUpdateList: []
+  uiGunUpdateList:
+  - {fileID: 0}
   maxShoots: 5
   timeToRecharge: 1
 --- !u!1 &6076659771514289316

@@ -32,6 +32,6 @@ public class ProjectilBase : MonoBehaviour
             
         }
 
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }

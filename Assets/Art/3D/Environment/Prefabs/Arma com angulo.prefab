@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1377794689981113093}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.025}
+  m_LocalPosition: {x: 0, y: 0, z: 3.767}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 2780246819607605297}
   - component: {fileID: 1156916067773991171}
   - component: {fileID: 4313040498160082761}
-  - component: {fileID: -4532378265484580053}
+  - component: {fileID: -4962854544652916000}
   m_Layer: 0
   m_Name: Arma com angulo
   m_TagString: Untagged
@@ -95,7 +95,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-4532378265484580053
+--- !u!114 &-4962854544652916000
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,13 +107,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 454d6cb62c796c0468ca98ef685f461a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabProjectil: {fileID: 8315344552608758209, guid: 984748c59200f7f48ad174be75426754, type: 3}
+  prefabProjectil: {fileID: 3897176386433414638, guid: 47a1d1f1646a130419c039a0cca9a23b, type: 3}
   posInicialTiro: {fileID: 5572753211584918624}
-  delayTiro: 6
-  teclaTiro: 120
-  speed: 10
-  uiGunUpdateList: []
+  delayTiro: 1
+  teclaTiro: 122
+  speed: 5
+  uiGunUpdateList:
+  - {fileID: 0}
   maxShoots: 5
   timeToRecharge: 1
-  amountPerShoot: 4
+  amountPerShoot: 5
   angle: 15

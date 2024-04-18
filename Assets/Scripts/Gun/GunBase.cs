@@ -11,7 +11,7 @@ public class GunBase : MonoBehaviour
     public float delayTiro;
     public Coroutine coroutineAtual;
     public KeyCode teclaTiro;
-    public float speed =50f;
+    public float speed ;
 
     // Update is called once per frame
    

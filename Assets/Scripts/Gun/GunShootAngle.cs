@@ -19,12 +19,12 @@ public class GunShootAngle : GunShootLimits
             {
                 mult++;
             }
-            var projectile = Instantiate(prefabProjectil,posInicialTiro);
+            var projectile = Instantiate(prefabProjectil, posInicialTiro);
 
             projectile.transform.localPosition = Vector3.zero;
-            projectile.transform.localEulerAngles = Vector3.zero + Vector3.up * (i%2==0?angle:-angle);
+            projectile.transform.localEulerAngles = Vector3.zero + Vector3.up * (i % 2 == 0 ? angle : -angle) * mult;
 
-            projectile.velProjectil = speed;
+            //projectile.velProjectil = speed;
             projectile.transform.parent = null;
 
         }
