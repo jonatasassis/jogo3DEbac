@@ -15,6 +15,8 @@ namespace Enemy
         public AnimationBase enemyAnimationBase;
         public FlashColor flashColor;
         public ParticleSystem enemyParticleSystem;
+        public bool lookAtPlayer=false;
+        private Player playerToLookAt;
 
         [Header("Start Animation")]
         public float startAnimationDuration = 0.2f;
@@ -26,7 +28,12 @@ namespace Enemy
             Init();
         }
 
-        private void Init()
+        private void Start()
+        {
+            playerToLookAt=GameObject.FindObjectOfType<Player>();
+        }
+
+        protected virtual void Init()
         {
             ResetLife();
             BornAnimation();
@@ -93,6 +100,23 @@ namespace Enemy
             OnDamage(damageAmount);
             transform.DOMoveX(transform.position.x-dir.x,0.1f);
             transform.DOMoveZ(transform.position.z - dir.z, 0.1f);
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            Player p= collision.transform.GetComponent<Player>();
+
+            if(p != null)
+            {
+                p.Damage(1);
+            }
+        }
+        public virtual void Update()
+        {
+            if(lookAtPlayer)
+            {
+                transform.LookAt(playerToLookAt.transform.position);
+            }
         }
     }
 }

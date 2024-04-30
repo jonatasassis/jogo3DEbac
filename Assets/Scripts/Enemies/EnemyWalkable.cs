@@ -11,8 +11,10 @@ namespace Enemy
         public float minDistance = 1;
         public float speed ;
 
-        private void Update()
+        
+        public override void Update()
         {
+            base.Update();
             if (Vector3.Distance(transform.position, wayPoints[index].transform.position) < minDistance)
             {
                 index++;

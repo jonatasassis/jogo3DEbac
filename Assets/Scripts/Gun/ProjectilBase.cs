@@ -8,6 +8,7 @@ public class ProjectilBase : MonoBehaviour
     public int qtdDano;
     public float velProjectil;
     public float posY;
+    public List<string> tagsToHit;
 
 
     // Start is called before the first frame update
@@ -26,17 +27,22 @@ public class ProjectilBase : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        var damageable = collision.transform.GetComponent<IDamageable>();
-
-        if (damageable!=null)
+        foreach (var t in tagsToHit)
         {
-            Vector3 dir = collision.transform.position - transform.position;
-            dir= -dir.normalized;
-            damageable.Damage(qtdDano,dir);
-            
-            
-        }
+            if (collision.transform.tag == t)
+            {
+                var damageable = collision.transform.GetComponent<IDamageable>();
 
+                if (damageable != null)
+                {
+                    Vector3 dir = collision.transform.position - transform.position;
+                    dir = -dir.normalized;
+                    damageable.Damage(qtdDano, dir);
+
+                }
+                break;
+            }
+        }
         //Destroy(gameObject);
     }
 }

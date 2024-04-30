@@ -13,9 +13,6 @@ public class GunBase : MonoBehaviour
     public KeyCode teclaTiro;
     public float speed ;
 
-    // Update is called once per frame
-   
-
     public virtual void Atirar()
     {
         var projectil = Instantiate(prefabProjectil);
@@ -27,10 +24,11 @@ public class GunBase : MonoBehaviour
 
    protected virtual IEnumerator DelayAtirar()
     {
-       
+        while (true)
+        {
             Atirar();
             yield return new WaitForSeconds(delayTiro);
-        
+        }
     }
 
     public void StartShoot()

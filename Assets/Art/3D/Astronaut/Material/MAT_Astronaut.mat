@@ -12,6 +12,7 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - _COLOR_ON
   - _TEX_ON
   m_InvalidKeywords:
   - _EMISSION
@@ -87,7 +88,7 @@ Material:
     - _SmoothnessTextureChannel: 1
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _TintColor: 0
+    - _TintColor: 1
     - _UVSec: 0
     - _VertexColor: 0
     - _ZWrite: 1

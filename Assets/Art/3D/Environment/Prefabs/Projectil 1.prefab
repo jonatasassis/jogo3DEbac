@@ -49,6 +49,9 @@ MonoBehaviour:
   delayDestruirPorjectil: 3
   qtdDano: 5
   velProjectil: 0
+  posY: 0
+  tagsToHit:
+  - Enemy
 --- !u!54 &1029042774981360941
 Rigidbody:
   m_ObjectHideFlags: 0
