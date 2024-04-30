@@ -18,6 +18,7 @@ public class Player : MonoBehaviour,IDamageable
 
     [Header("Flash")]
     public List<FlashColor> flashColorPlayer;
+   
 
     void Update()
     {
