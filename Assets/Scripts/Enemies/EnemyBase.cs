@@ -88,5 +88,11 @@ namespace Enemy
         {
             OnDamage(damageAmount);
         }
+        public void Damage(float damageAmount,Vector3 dir)
+        {
+            OnDamage(damageAmount);
+            transform.DOMoveX(transform.position.x-dir.x,0.1f);
+            transform.DOMoveZ(transform.position.z - dir.z, 0.1f);
+        }
     }
 }

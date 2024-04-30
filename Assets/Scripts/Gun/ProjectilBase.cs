@@ -7,12 +7,14 @@ public class ProjectilBase : MonoBehaviour
     public float delayDestruirPorjectil;
     public int qtdDano;
     public float velProjectil;
+    public float posY;
 
 
     // Start is called before the first frame update
     void Awake()
     {
         Destroy(gameObject,delayDestruirPorjectil);
+        posY = gameObject.transform.position.y;
     }
 
     // Update is called once per frame
@@ -28,7 +30,10 @@ public class ProjectilBase : MonoBehaviour
 
         if (damageable!=null)
         {
-            damageable.Damage(qtdDano);
+            Vector3 dir = collision.transform.position - transform.position;
+            dir= -dir.normalized;
+            damageable.Damage(qtdDano,dir);
+            
             
         }
 
