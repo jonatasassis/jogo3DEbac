@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Animation;
+using Boss;
 
 
 namespace Enemy
@@ -57,6 +58,8 @@ namespace Enemy
                 collider.enabled= false;
             }
             Destroy(gameObject,3f);
+            BossBase.amountKillEnemies++;
+            print("matei "+BossBase.amountKillEnemies+" inimigos");
             PlayAnimationByTrigger(AnimationType.DEATH);
 
         }
