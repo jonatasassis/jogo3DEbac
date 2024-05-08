@@ -33,7 +33,7 @@ public class HealthBase : MonoBehaviour,IDamageable
         }
     }
 
-    protected void ResetLife()
+    public void ResetLife()
     {
         currentLife = startLife;
     }

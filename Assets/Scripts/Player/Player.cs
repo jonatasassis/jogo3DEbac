@@ -40,18 +40,7 @@ public class Player : MonoBehaviour
         healtPlayer.onKill += OnKill;
     }
 
-    private void OnKill(HealthBase h)
-    {
-        if(isAlive)
-        {
-            isAlive = false;
-            animPlayer.SetTrigger("Death");
-            playerColliders.ForEach(i=>i.enabled=false);
-           
-        }
-        
-        
-    }
+   
     void Update()
     {
         transform.Rotate(0, Input.GetAxis("Horizontal") * (turnSpeed*750) * Time.deltaTime, 0);
@@ -93,6 +82,34 @@ public class Player : MonoBehaviour
         }
     }
     #region LIFE
+    private void OnKill(HealthBase h)
+    {
+        if (isAlive)
+        {
+            isAlive = false;
+            animPlayer.SetTrigger("Death");
+            playerColliders.ForEach(i => i.enabled = false);
+
+            Invoke(nameof(RevivePlayer), 1f);
+
+        }
+
+
+    }
+    private void RevivePlayer()
+    {
+        isAlive = true;
+        healtPlayer.ResetLife();
+        animPlayer.SetTrigger("Revive");
+       
+        RespawnPlayer();
+        Invoke(nameof(TurnOnColliders),.1f);
+    }
+
+    private void TurnOnColliders()
+    {
+        playerColliders.ForEach(i => i.enabled = true);
+    }
     public void Damage(HealthBase h)
     {
         flashColorPlayer.ForEach(i=> i.Flash());
@@ -103,4 +120,13 @@ public class Player : MonoBehaviour
         //Damage(damageAmount);
     }
     #endregion
+
+    [NaughtyAttributes.Button]
+    public void RespawnPlayer()
+    {
+       if(CheckPointManager.Instance.hasCheckPoint()) 
+        {
+            transform.position = CheckPointManager.Instance.GetPositionFromLastCheckPoint();
+        }
+    }
 }
