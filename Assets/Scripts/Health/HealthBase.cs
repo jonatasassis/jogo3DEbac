@@ -7,12 +7,13 @@ using UnityEngine.PlayerLoop;
 
 public class HealthBase : MonoBehaviour,IDamageable
 {
-    private float currentLife;
+    [SerializeField]private float currentLife;
     public float startLife;
     public float delayToDestroy = 3f;
     public Action<HealthBase> onDamage;
     public Action <HealthBase>onKill;
     public bool destroyOnKill=false;
+    public List <UIFillUpdater> UIGunUpdate;
 
     public void Awake()
     {
@@ -23,6 +24,15 @@ public class HealthBase : MonoBehaviour,IDamageable
     {
         ResetLife();
     }
+
+    private void UpdateUI()
+    {
+        if(UIGunUpdate!=null)
+        {
+            UIGunUpdate.ForEach(i=>i.UpdateValue((float)currentLife/startLife));
+        }
+    }
+
     protected void ResetLife()
     {
         currentLife = startLife;
@@ -49,6 +59,7 @@ public class HealthBase : MonoBehaviour,IDamageable
         {
             Kill();
         }
+        UpdateUI();
         onDamage?.Invoke(this);
     }
 
