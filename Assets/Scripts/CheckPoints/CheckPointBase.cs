@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CheckPointBase : MonoBehaviour
 {
@@ -8,6 +9,12 @@ public class CheckPointBase : MonoBehaviour
     public int key = 01;
     private string checkPointKey= "CheckPointKey";
     private bool checkPointActivated = false;
+    public Text checkPointMessage;
+
+    private void Awake()
+    {
+        checkPointMessage.text = "";
+    }
     private void OnTriggerEnter(Collider col)
     {
         if (!checkPointActivated && col.transform.tag == "Player")
@@ -32,6 +39,8 @@ public class CheckPointBase : MonoBehaviour
     {
         meshRenderer.material.SetColor("_EmissionColor", Color.white);
         SaveCheckPoint();
+        checkPointMessage.text = "CheckPoint Ativado!";
+       Invoke(nameof(MessageDelay),3f);
         print("liguei o checkpoint "+key);
     }
 
@@ -45,4 +54,12 @@ public class CheckPointBase : MonoBehaviour
         CheckPointManager.Instance.SaveLastCheckPoint(key);
         checkPointActivated = true;
     }
+
+   private void MessageDelay()
+    {
+       
+        
+        checkPointMessage.text = "";
+    }
+
 }
