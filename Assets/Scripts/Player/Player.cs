@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     private float vSpeed = 0f;
     public float jumpSpeed = 15f;
     public HealthBase healtPlayer;
+    private bool isAlive=true;
+    public List<Collider> playerColliders;
 
     [Header("Run Setup")]
     public KeyCode keyRun = KeyCode.LeftShift;
@@ -32,6 +34,20 @@ public class Player : MonoBehaviour
     {
         OnValidate();
         healtPlayer.onDamage += Damage;
+        healtPlayer.onDamage += OnKill;
+    }
+
+    private void OnKill(HealthBase h)
+    {
+        if(isAlive)
+        {
+            isAlive = false;
+            animPlayer.SetTrigger("Death");
+            playerColliders.ForEach(i=>i.enabled=false);
+           
+        }
+        
+        
     }
     void Update()
     {

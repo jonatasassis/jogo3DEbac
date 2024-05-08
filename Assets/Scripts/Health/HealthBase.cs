@@ -7,7 +7,7 @@ using UnityEngine.PlayerLoop;
 
 public class HealthBase : MonoBehaviour,IDamageable
 {
-    [SerializeField] private float currentLife;
+    private float currentLife;
     public float startLife;
     public float delayToDestroy = 3f;
     public Action<HealthBase> onDamage;
