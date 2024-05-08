@@ -5,10 +5,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
-public class HealthBase : MonoBehaviour
+public class HealthBase : MonoBehaviour,IDamageable
 {
     [SerializeField] private float currentLife;
     public float startLife;
+    public float delayToDestroy = 3f;
     public Action<HealthBase> onDamage;
     public Action <HealthBase>onKill;
     public bool destroyOnKill=false;
@@ -31,7 +32,7 @@ public class HealthBase : MonoBehaviour
     {
         if (destroyOnKill)
         {
-            Destroy(gameObject, 3f);
+            Destroy(gameObject, delayToDestroy);
         }
 
         onKill?.Invoke(this);
@@ -49,5 +50,10 @@ public class HealthBase : MonoBehaviour
             Kill();
         }
         onDamage?.Invoke(this);
+    }
+
+    public void Damage(float damageAmount, Vector3 dir)
+    {
+        Damage(damageAmount);
     }
 }

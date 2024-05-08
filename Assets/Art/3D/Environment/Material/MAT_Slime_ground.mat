@@ -89,7 +89,7 @@ Material:
     - _VertexColor: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.64406705, g: 0.41304737, b: 0.9622642, a: 1}
+    - _Color: {r: 0.1986472, g: 0.4528302, b: 0.40667728, a: 1}
     - _EmissionColor: {r: 0.8862745, g: 0.23553342, b: 0, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
