@@ -20,6 +20,8 @@ public class GunBase : MonoBehaviour
         projectil.transform.rotation= posInicialTiro.rotation;
         projectil.velProjectil = speed;
 
+        
+
     }
 
    protected virtual IEnumerator DelayAtirar()
