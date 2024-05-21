@@ -8,7 +8,7 @@ public class Singleton<P> : MonoBehaviour where P : MonoBehaviour
 {
     public static P Instance;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         if (Instance == null)
         {

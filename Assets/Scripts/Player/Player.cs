@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Scripts.Singleton;
 
-public class Player : MonoBehaviour
+public class Player :Singleton<Player>
 {
     public Animator animPlayer;
     public CharacterController characterController;
@@ -33,14 +34,17 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         OnValidate();
         healtPlayer.onDamage += Damage;
         healtPlayer.onKill += OnKill;
-    }
 
+    }
    
+
+
     void Update()
     {
         transform.Rotate(0, Input.GetAxis("Horizontal") * (turnSpeed*750) * Time.deltaTime, 0);
