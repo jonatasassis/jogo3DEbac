@@ -1806,7 +1806,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinNumber: 5
-  coinObject: {fileID: 0}
+  coinObject: {fileID: 2912009812031641928, guid: 443e16ca9d4599d41897035d017fcf98, type: 3}
   tweenEndTime: 0.5
 --- !u!4 &279953282
 Transform:
@@ -8135,6 +8135,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6681446452094405550, guid: 4681eb18089151b4c820e46b468307fa, type: 3}
   m_PrefabInstance: {fileID: 462379483}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1162790168 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1829968477296583567, guid: 83ac483833d2e95419ea2a5630189815, type: 3}
+  m_PrefabInstance: {fileID: 5432624266669605656}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1164845940
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12046,7 +12051,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
@@ -16464,9 +16469,13 @@ PrefabInstance:
       value: Life Pack
       objectReference: {fileID: 0}
     - target: {fileID: 2064589770219982325, guid: 83ac483833d2e95419ea2a5630189815, type: 3}
+      propertyPath: timeToHide
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2064589770219982325, guid: 83ac483833d2e95419ea2a5630189815, type: 3}
       propertyPath: graphicItem
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1162790168}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
