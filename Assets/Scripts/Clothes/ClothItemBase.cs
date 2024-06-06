@@ -8,6 +8,7 @@ namespace Cloth
     {
         public ClothType clothType;
         public string compareTag = "Player";
+        public float duration;
 
         private void OnTriggerEnter(Collider other)
         {
@@ -19,6 +20,8 @@ namespace Cloth
 
         public virtual void Collect()
         {
+            var setup= ClothManager.Instance.GetSetupByType(clothType);
+            Player.Instance.ChangeTexture(setup,duration);
             HideObjects();
         }
 

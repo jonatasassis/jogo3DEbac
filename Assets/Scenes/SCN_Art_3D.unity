@@ -266,6 +266,7 @@ MonoBehaviour:
   - {fileID: 478184141}
   - {fileID: 2080294983}
   - {fileID: 1241432669}
+  clothChanger: {fileID: 16940877}
 --- !u!4 &16940872
 Transform:
   m_ObjectHideFlags: 0
@@ -6756,7 +6757,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 938563517}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.24446768, y: 0.000000018653607, z: -0.0000000047029025, w: 0.9696575}
+  m_LocalRotation: {x: 0.24446768, y: -0.000000018653607, z: 0.0000000047029025, w: 0.9696575}
   m_LocalPosition: {x: -14.329834, y: 7.3498335, z: -52.64261}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15165,8 +15166,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2028817284}
-  - component: {fileID: 2028817283}
   - component: {fileID: 2028817282}
+  - component: {fileID: 2028817285}
   m_Layer: 0
   m_Name: clothItemSpeed
   m_TagString: Untagged
@@ -15195,20 +15196,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2028817283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2028817281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8753f1c9087cbac4db20d12f086038af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clothType: 0
-  compareTag: Player
 --- !u!4 &2028817284
 Transform:
   m_ObjectHideFlags: 0
@@ -15225,6 +15212,22 @@ Transform:
   - {fileID: 355825848}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2028817285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028817281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28ea366ecab9ab64fa183b1f5a66eaa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clothType: 0
+  compareTag: Player
+  duration: 2
+  targetSpeed: 2
 --- !u!1001 &2035381649
 PrefabInstance:
   m_ObjectHideFlags: 0

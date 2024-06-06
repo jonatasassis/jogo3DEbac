@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Scripts.Singleton;
+using Cloth;
 
 public class Player :Singleton<Player>
 {
@@ -25,6 +26,9 @@ public class Player :Singleton<Player>
 
     [Header("Flash")]
     public List<FlashColor> flashColorPlayer;
+
+    [Header("Clothes")]
+    [SerializeField]private ClothChanger clothChanger;
 
     private void OnValidate()
     {
@@ -147,5 +151,18 @@ public class Player :Singleton<Player>
         speed = localSpeed;
         yield return new WaitForSeconds(duration);
         speed = defautlSpeed;
+    }
+
+    public void ChangeTexture(ClothSetup setup,float duration)
+    {
+        StartCoroutine(ChangeTextureCoroutine(setup, duration));
+    }
+
+    IEnumerator ChangeTextureCoroutine(ClothSetup setup, float duration)
+    {
+        clothChanger.ChangeTexture(setup);  
+        yield return new WaitForSeconds(duration);
+        clothChanger.ResetTexture(setup);
+        
     }
 }
