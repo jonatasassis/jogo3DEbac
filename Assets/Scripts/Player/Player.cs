@@ -135,4 +135,17 @@ public class Player :Singleton<Player>
             transform.position = CheckPointManager.Instance.GetPositionFromLastCheckPoint();
         }
     }
+
+    public void ChangeSpeed(float speed,float duration)
+    {
+        StartCoroutine(ChangeSpeedCoroutine(speed, duration));
+    }
+
+    IEnumerator ChangeSpeedCoroutine(float localSpeed,float duration)
+    {
+        var defautlSpeed = speed;
+        speed = localSpeed;
+        yield return new WaitForSeconds(duration);
+        speed = defautlSpeed;
+    }
 }
