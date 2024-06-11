@@ -13,6 +13,7 @@ public class Player :Singleton<Player>
     public float gravity = 9.8f;
     private float vSpeed = 0f;
     public float jumpSpeed = 15f;
+    private bool jumping;
 
     [Header("Life")]
     public HealthBase healtPlayer;
@@ -57,10 +58,20 @@ public class Player :Singleton<Player>
 
         if (characterController.isGrounded)
         { 
+            if(jumping)
+            {
+                jumping = false;
+                animPlayer.SetTrigger("Land");
+            }
             vSpeed = 0;
             if (Input.GetKeyDown(KeyCode.Space))
             { 
-                vSpeed = jumpSpeed; 
+                vSpeed = jumpSpeed;
+                if (! jumping)
+                {
+                    jumping = true;
+                    animPlayer.SetTrigger("Jump");
+                }
             } 
         }
         vSpeed -= gravity * Time.deltaTime;
