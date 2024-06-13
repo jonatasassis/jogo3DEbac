@@ -13,6 +13,7 @@ public class FlashColor : MonoBehaviour
     public float flashDuration = 0.1f;
     public int flashCount;
     private Tween currentTween;
+    public string colorParameter = "_Color";
 
     private void OnValidate()
     {
@@ -36,12 +37,12 @@ public class FlashColor : MonoBehaviour
 
         if(meshRenderer !=null && !currentTween.IsActive())
         {
-            currentTween = meshRenderer.material.DOColor(damageColor, "_Color", flashDuration).SetLoops(flashCount, LoopType.Yoyo);
+            currentTween = meshRenderer.material.DOColor(damageColor, colorParameter, flashDuration).SetLoops(flashCount, LoopType.Yoyo);
         }
        
         if (skinnedMeshRenderer != null && !currentTween.IsActive())
         {
-            currentTween = skinnedMeshRenderer.material.DOColor(damageColor, "_Color", flashDuration).SetLoops(flashCount, LoopType.Yoyo);
+            currentTween = skinnedMeshRenderer.material.DOColor(damageColor, colorParameter, flashDuration).SetLoops(flashCount, LoopType.Yoyo);
         }
         
     }

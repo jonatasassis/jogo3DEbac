@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,7 +11,8 @@ public class PlayerAbilityShoot : PlayerAbilityBase
     public GunBase arma1,arma2;
     private GunBase currentGun;
     public Transform gunPosition;
-    
+    public FlashColor[] flashColor;
+
     protected override void Init()
     {
         base.Init();
@@ -36,6 +38,11 @@ public class PlayerAbilityShoot : PlayerAbilityBase
     {
 
         currentGun.StartShoot();
+        for(int x=0;x<3;x++)
+        {
+            flashColor[x]?.Flash();
+        }
+        
         Debug.Log("Atirar");
     }
     private void StopShoot()
